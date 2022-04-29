@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import { PhotoContextProvider } from "./context";
 import { Header, Item, Search, NotFound} from "./components";
@@ -14,15 +14,16 @@ export const App: FC = () => {
     e.preventDefault();
     e.currentTarget.reset();
     const url = `/search/${searchInput}`;
+    console.log("Initial URL: ", url, searchInput);
     reRoute(url);
   };
 
   return (
     <PhotoContextProvider>
-      <HashRouter basename="/SnapScout">
+      <BrowserRouter basename="/SnapScout">
         <div className="container">
           <Route
-            render={props => (
+            render={(props) => (
               <Header
                 handleSubmit={handleSubmit}
                 history={props.history}
@@ -44,16 +45,16 @@ export const App: FC = () => {
             <Route path="/food" render={() => <Item searchTerm="food" />} />
             <Route
               path="/search/:searchInput"
-              render={props => (
+              render={(props) => (
                 <Search searchTerm={props.match.params.searchInput} />
               )}
             />
             <Route component={NotFound} />
           </Switch>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     </PhotoContextProvider>
   );
-}
+};
 
 export default App;

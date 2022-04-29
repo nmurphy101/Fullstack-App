@@ -7,14 +7,16 @@ interface Props {
 
 export const Form: FC<Props> = ({ handleSubmit, history }) => {
   const [searchEntry, setSearchEntry] = useState("");
+
   // update search text state
   const updateSearchInput = (e: any) => {
     setSearchEntry(e.target.value);
   };
+
   return (
     <form
       className="search-form"
-      onSubmit={e => handleSubmit(e, history, searchEntry)}
+      onSubmit={(e) => handleSubmit(e, searchEntry)}
     >
       <input
         type="text"

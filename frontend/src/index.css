@@ -4,7 +4,7 @@ body {
     color: #3f4850;
   }
 
-  .forkongithub a {
+  /* .forkongithub a {
     background: #000;
     color: #fff;
     text-decoration: none;
@@ -38,7 +38,7 @@ body {
   .forkongithub a::after {
     bottom: 1px;
     top: auto;
-  }
+  } */
 
   h2 {
     font-size: 2em;

@@ -5,7 +5,7 @@ import { getFlickrPhotos } from "../api";
 
 interface Props {
   children: ReactNode,
-};
+}
 
 export const PhotoContext = createContext(null);
 
@@ -16,11 +16,11 @@ export const PhotoContextProvider: FC<Props> = ({ children }) => {
   const runSearch = useCallback(
     async (query: string) => {
       getFlickrPhotos(query)
-        .then(data => {
+        .then((data) => {
           setImages(data.photos.photo);
           setLoading(false);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(
             "Encountered an error with fetching and parsing data",
             error

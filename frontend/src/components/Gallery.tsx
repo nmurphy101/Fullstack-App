@@ -5,7 +5,7 @@ import {NoImages, Image} from ".";
 
 interface Props {
   data: any,
-};
+}
 
 export const Gallery: FC<Props> = ({ data }) => {
   let images;
@@ -13,12 +13,12 @@ export const Gallery: FC<Props> = ({ data }) => {
   // map variables to each item in fetched image array and return image component
   if (data.length > 0) {
     images = data.map((image: any) => {
-      let farm = image.farm;
-      let server = image.server;
-      let id = image.id;
-      let secret = image.secret;
-      let title = image.title;
-      let url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
+      const farm = image.farm;
+      const server = image.server;
+      const id = image.id;
+      const secret = image.secret;
+      const title = image.title;
+      const url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
       return <Image url={url} key={id} title={title} />;
     });
   } else {

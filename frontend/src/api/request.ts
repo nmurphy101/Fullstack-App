@@ -27,7 +27,7 @@ export async function request<T>(options: AxiosRequestConfig, authToken?: string
   } catch (error: unknown) {
     let errorMessage: string | AxiosError | unknown = error;
     if (axios.isAxiosError(error)) {
-      console.log("TESTING2 ERROR: ", error, typeof error)
+      console.log("TESTING2 ERROR: ", error, typeof error);
       if (error.response) {
         errorMessage = error.response.data.message;
       } else if (error.request) {
