@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": false,
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.spec.ts"],
+  "exclude": ["node_modules", "config", "flow", "flow-typed", "bin", "scss", "images"]
+}

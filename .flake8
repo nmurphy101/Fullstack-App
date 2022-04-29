@@ -1,0 +1,31 @@
+[flake8]
+ignore =
+        # E501: line too long - doesn't work with some data and nested dicts
+        E501,
+        # E402: module level import not at top of file - test files may not follow this
+        # because of pytest_plugins
+        ; E402,
+        # W503: line break before binary operator - this wants logic line splitting to become one
+        # hard to read line
+        W503,
+        # W504: line break after binary operator - this wants logic line splitting to become one
+        # hard to read line
+        W504,
+        # E711: Comparison to none should be 'if cond is none:' - sqlalchemy filters involving
+        # None won't work
+        ; E711,
+        # Ignore continuation line under-indented for hanging indent (accommodating wrapping style)
+        E121,
+        # Ignore continuation line with the same indent as the next logical line; (accommodating wrapping style)
+        E125,
+        # Invalid escape sequence - is stupid with regex for spaces
+        W605
+
+exclude =
+        # Yes, you will find Python in node modules
+        node_modules/*,
+
+
+inline-quotes = double
+
+format = ${cyan}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(col)d${reset}: ${red_bold}%(code)s${reset} %(text)s

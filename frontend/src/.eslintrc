@@ -1,0 +1,105 @@
+{
+    "parser": "babel-eslint",
+    "root": true,
+    "overrides": [
+      {
+        "files": ["*.ts", "*.tsx"],
+        "parser": "@typescript-eslint/parser",
+        "parserOptions": {
+          "ecmaVersion": 6,
+          "sourceType": "module",
+          "ecmaFeatures": { "modules": true }
+        },
+        "plugins": ["@typescript-eslint"],
+        "extends": ["plugin:@typescript-eslint/recommended"],
+        "rules": {
+          "@typescript-eslint/camelcase": "off",
+          "@typescript-eslint/no-unused-vars": "off",
+          "@typescript-eslint/ban-ts-comment": "off",
+          "@typescript-eslint/no-var-requires": "off",
+          "@typescript-eslint/no-redeclare": "off",
+          "@typescript-eslint/ban-types": "off",
+          "@typescript-eslint/ban-ts-ignore": "off",
+          "@typescript-eslint/no-use-before-define": "off"
+        }
+      },
+      {
+        "files": ["*.js", "*.jsx"],
+        "parserOptions": {
+          "ecmaVersion": 6,
+          "sourceType": "module",
+          "ecmaFeatures": { "modules": true }
+        },
+
+        "rules": {
+          "@typescript-eslint/camelcase": "off"
+        }
+      }
+    ],
+    "plugins": ["react", "prettier"],
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "prettier",
+      "plugin:jest/recommended",
+      "plugin:cypress/recommended"
+    ],
+    "settings": {
+      "ecmascript": 6,
+      "react": {
+        "version": "detect"
+      }
+    },
+    "env": {
+      "es6": true,
+      "node": true,
+      "browser": true,
+      "jest": true
+    },
+    "rules": {
+      "indent": ["error", 2, { "SwitchCase": 1 }],
+      "no-tabs": "error",
+      "semi": 2,
+      "no-undef": 2,
+      "no-const-assign": 2,
+      "guard-for-in": 2,
+      "array-callback-return": 0,
+      "import/no-anonymous-default-export": 0,
+      "react-hooks/exhaustive-deps": 0,
+      "no-nested-ternary": "error",
+      "multiline-ternary": ["error", "never"],
+      "no-var": 2,
+      "prefer-const": "error",
+      "new-cap": "error",
+      "multiline-comment-style": ["error", "bare-block"],
+      "array-bracket-newline": ["error", { "multiline": true }],
+      "default-case": "error",
+      "no-multi-spaces": "error",
+      "brace-style": "error",
+      "comma-dangle": ["error", "always-multiline"],
+      "comma-spacing": ["error", { "before": false, "after": true }],
+      "no-trailing-spaces": "error",
+      "arrow-parens": ["error", "always"],
+      "operator-linebreak": ["error", "before"],
+      "spaced-comment": ["error", "always"],
+      "quotes": ["error", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
+      "react/no-danger": "error",
+      "eol-last": "error",
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
+      "no-redeclare": "off",
+      "@typescript-eslint/no-redeclare": "off",
+      "@typescript-eslint/ban-types": "off",
+      "react/prop-types": 0,
+      "jest/no-disabled-tests": "off",
+      "jest/expect-expect": [
+        "error",
+        { "assertFunctionNames": ["expect", "get.*.should", "get.should", "cy.get.*.should", "cy.get.should", "*.should"] }
+      ]
+    },
+    "globals": {
+      "site": true,
+      "cy": true,
+      "Cypress": true
+    }
+  }

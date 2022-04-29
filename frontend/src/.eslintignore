@@ -1,0 +1,5 @@
+{,**/}config/**
+{,**/}.yarn/**
+{,**/}node_modules/**
+{,**/,**/.*/}*.config.*
+{,**/}flow-typed/**
