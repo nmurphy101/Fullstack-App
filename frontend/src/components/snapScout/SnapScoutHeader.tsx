@@ -1,10 +1,10 @@
 import { FC } from "react";
 
 import { Form, Navigation } from ".";
-import { useReRoute } from "../../../src/hooks";
+import { useReRoute } from "../../hooks";
 
 
-export const Header: FC = () => {
+export const SnapScoutHeader: FC = () => {
   const reRoute = useReRoute();
 
   // Prevent page reload, clear input, set URL and push history on submit

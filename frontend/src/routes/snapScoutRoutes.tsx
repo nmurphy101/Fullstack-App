@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
-import { Item, Search } from "../components";
+import { SnapScoutHeader, Item, Search } from "../components";
 
 export const SnapScoutRoutes: FC = () => {
   const snapScoutNav = {
@@ -16,18 +16,25 @@ export const SnapScoutRoutes: FC = () => {
   return (
     <>
       <Route
-        path={snapScoutNav.links[0]["to"]}
-        render={() => <Item searchTerm={snapScoutNav.links[0]["name"]} />}
+        exact
+        path="/SnapScout"
+        render={() => <SnapScoutHeader /> }
       />
-      <Route path={snapScoutNav.links[1]["to"]} render={() => <Item searchTerm={snapScoutNav.links[1]["name"]} />} />
-      <Route path={snapScoutNav.links[2]["to"]} render={() => <Item searchTerm={snapScoutNav.links[2]["name"]} />} />
-      <Route path={snapScoutNav.links[3]["to"]} render={() => <Item searchTerm={snapScoutNav.links[3]["name"]} />} />
-      <Route
-        path="/SnapScout/search/:searchInput"
-        render={(props) => (
-          <Search searchTerm={props.match.params.searchInput} />
-        )}
-      />
+      <Switch>
+        <Route
+          path={snapScoutNav.links[0]["to"]}
+          render={() => <Item searchTerm={snapScoutNav.links[0]["name"]} />}
+        />
+        <Route path={snapScoutNav.links[1]["to"]} render={() => <Item searchTerm={snapScoutNav.links[1]["name"]} />} />
+        <Route path={snapScoutNav.links[2]["to"]} render={() => <Item searchTerm={snapScoutNav.links[2]["name"]} />} />
+        <Route path={snapScoutNav.links[3]["to"]} render={() => <Item searchTerm={snapScoutNav.links[3]["name"]} />} />
+        <Route
+          path="/SnapScout/search/:searchInput"
+          render={(props) => (
+            <Search searchTerm={props.match.params.searchInput} />
+          )}
+        />
+      </Switch>
     </>
   );
 };

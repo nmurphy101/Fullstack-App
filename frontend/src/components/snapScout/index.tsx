@@ -1,6 +1,6 @@
 export * from "./Form";
 export * from "./Gallery";
-export * from "./Header";
+export * from "./SnapScoutHeader";
 export * from "./Image";
 export * from "./Item";
 export * from "./Navigation";

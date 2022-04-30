@@ -1,38 +1,32 @@
 import { FC } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 
 import { PhotoContextProvider } from "./context";
-import { Header, NavigationBar } from "./components";
-import { SnapScoutRoutes } from "./routes";
+import { NavigationBar } from "./components";
+import { ProfileRoutes, SnapScoutRoutes } from "./routes";
 
 export const App: FC = () => {
 
   const appNav = {
     brand: { name: "Nick Murphy", to: "/" },
     links: [
-      { name: "Mountain", to: "/SnapScout/mountain" },
-      { name: "Beach", to: "/SnapScout/beach" },
-      { name: "Bird", to: "/SnapScout/bird" },
-      { name: "Food", to: "/SnapScout/food" },
+      { name: "Profile", to: "/Profile" },
+      { name: "SnapScout", to: "/SnapScout" },
     ],
   };
 
   return (
     <PhotoContextProvider>
-      <BrowserRouter basename="">
+      <BrowserRouter>
         <NavigationBar brand={appNav.brand} links={appNav.links} />
         <div className="container">
           <Route
-            render={() => <Header /> }
+            exact
+            path="/"
+            render={() => <Redirect to={appNav.links[0]["to"]} />}
           />
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={() => <Redirect to={appNav.links[0]["to"]} />}
-            />
-            <SnapScoutRoutes />
-          </Switch>
+          <ProfileRoutes />
+          <SnapScoutRoutes />
         </div>
       </BrowserRouter>
     </PhotoContextProvider>
