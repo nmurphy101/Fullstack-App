@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import { SnapScoutHeader, Item, Search } from "../components";
+import { SnapScoutHeader, Item, SnapScoutSearch } from "../components";
 
 export const SnapScoutRoutes: FC = () => {
   const snapScoutNav = {
@@ -31,7 +31,7 @@ export const SnapScoutRoutes: FC = () => {
         <Route
           path="/SnapScout/search/:searchInput"
           render={(props) => (
-            <Search searchTerm={props.match.params.searchInput} />
+            <SnapScoutSearch searchTerm={props.match.params.searchInput} />
           )}
         />
       </Switch>

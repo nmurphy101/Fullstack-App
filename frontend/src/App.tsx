@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 
-import { PhotoContextProvider } from "./context";
+import { PhotoContextProvider, SecurePasswordProvider } from "./context";
 import { NavigationBar } from "./components";
-import { ProfileRoutes, SnapScoutRoutes } from "./routes";
+import { ProfileRoutes, SnapScoutRoutes, SecurePasswordRoutes } from "./routes";
 
 export const App: FC = () => {
 
@@ -12,24 +12,28 @@ export const App: FC = () => {
     links: [
       { name: "Profile", to: "/Profile" },
       { name: "SnapScout", to: "/SnapScout" },
+      { name: "SecurePasswordChecker", to: "/SecurePassword" },
     ],
   };
 
   return (
-    <PhotoContextProvider>
-      <BrowserRouter>
-        <NavigationBar brand={appNav.brand} links={appNav.links} />
-        <div className="container">
-          <Route
-            exact
-            path="/"
-            render={() => <Redirect to={appNav.links[0]["to"]} />}
-          />
-          <ProfileRoutes />
-          <SnapScoutRoutes />
-        </div>
-      </BrowserRouter>
-    </PhotoContextProvider>
+    <SecurePasswordProvider>
+      <PhotoContextProvider>
+        <BrowserRouter>
+          <NavigationBar brand={appNav.brand} links={appNav.links} />
+          <div className="container">
+            <Route
+              exact
+              path="/"
+              render={() => <Redirect to={appNav.links[0]["to"]} />}
+            />
+            <ProfileRoutes />
+            <SnapScoutRoutes />
+            <SecurePasswordRoutes />
+          </div>
+        </BrowserRouter>
+      </PhotoContextProvider>
+    </SecurePasswordProvider>
   );
 };
 

@@ -1,3 +1,4 @@
 export * from "./config";
-export * from "./getFlickrPhotos";
 export * from "./request";
+export * from "./getFlickrPhotos";
+export * from "./getSecurePassword";

@@ -5948,6 +5948,11 @@
   dependencies:
     "argparse" "^2.0.1"
 
+"jscrypto@^1.0.3":
+  "integrity" "sha512-lryZl0flhodv4SZHOqyb1bx5sKcJxj0VBo0Kzb4QMAg3L021IC9uGpl0RCZa+9KJwlRGSK2C80ITcwbe19OKLQ=="
+  "resolved" "https://registry.npmjs.org/jscrypto/-/jscrypto-1.0.3.tgz"
+  "version" "1.0.3"
+
 "jsdom@^16.6.0":
   "integrity" "sha512-u9Smc2G1USStM+s/x1ru5Sxrl6mPYCbByG1U/hUmqaVsm4tbNyS7CicOSRyuGQYZhTu0h84qkZZQ/I+dzizSVw=="
   "resolved" "https://registry.npmjs.org/jsdom/-/jsdom-16.7.0.tgz"

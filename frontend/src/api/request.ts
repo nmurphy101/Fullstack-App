@@ -26,14 +26,14 @@ export async function request<T>(options: AxiosRequestConfig, authToken?: string
   } catch (error: unknown) {
     let errorMessage: string | AxiosError | unknown = error;
     if (axios.isAxiosError(error)) {
-      if (error.response) {
+      if (error.response.data) {
         errorMessage = error.response.data.message;
       } else if (error.request) {
-        errorMessage = error.request;
+        errorMessage = error.request.status;
       } else if (error.message) {
         errorMessage = error.message;
       } else {
-        errorMessage = `Unknown error type`;
+        errorMessage = error.response.status;
       }
     }
     throw errorMessage;

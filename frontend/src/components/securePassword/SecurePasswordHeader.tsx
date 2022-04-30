@@ -1,26 +1,34 @@
 import { FC } from "react";
 
 import { Form } from "../common";
-import { Navigation } from ".";
 import { useReRoute } from "../../hooks";
 
 
-export const SnapScoutHeader: FC = () => {
+export const SecurePasswordHeader: FC = () => {
   const reRoute = useReRoute();
 
   // Prevent page reload, clear input, set URL and push history on submit
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>, searchInput: string) => {
     e.preventDefault();
     e.currentTarget.reset();
-    const url = `/SnapScout/search/${searchInput}`;
+    const url = `/SecurePassword/search/${searchInput}`;
     reRoute(url);
   };
 
   return (
     <div>
-      <h1>SnapScout</h1>
+      <h1>Secure Password Checker</h1>
       <Form handleSubmit={handleSubmit} />
-      <Navigation />
+
+      {/* <iframe
+        className={styles.profileFrame}
+        scrolling="no"
+        title="fx."
+        src=""
+        frameBorder="no"
+        allowTransparency={true}
+        allowFullScreen={true}
+      /> */}
     </div>
   );
 };
