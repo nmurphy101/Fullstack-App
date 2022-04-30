@@ -2,10 +2,9 @@ import { useState, FC } from "react";
 
 interface Props {
   handleSubmit: any,
-  history: any,
 }
 
-export const Form: FC<Props> = ({ handleSubmit, history }) => {
+export const Form: FC<Props> = ({ handleSubmit }) => {
   const [searchEntry, setSearchEntry] = useState("");
 
   // update search text state

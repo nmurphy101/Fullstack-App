@@ -1,16 +1,16 @@
 import { FC } from "react";
 
-import { Container } from ".";
+import { Container } from "./Container";
 
 
 interface Props {
   searchTerm: string,
 }
 
-export const Item: FC<Props> = ({ searchTerm }) => {
+export const Search: FC<Props> = ({ searchTerm }) => {
   return (
     <div>
-      <h2>{searchTerm} Pictures</h2>
+      <h2>{searchTerm} Images</h2>
       <Container searchTerm={searchTerm} />
     </div>
   );

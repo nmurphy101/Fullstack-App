@@ -1,14 +1,10 @@
 import { FC } from "react";
 
 import { Form, Navigation } from ".";
-import { useReRoute } from "../../src/hooks";
+import { useReRoute } from "../../../src/hooks";
 
 
-interface Props {
-  history: any,
-}
-
-export const Header: FC<Props> = ({ history }) => {
+export const Header: FC = () => {
   const reRoute = useReRoute();
 
   // Prevent page reload, clear input, set URL and push history on submit
@@ -22,7 +18,7 @@ export const Header: FC<Props> = ({ history }) => {
   return (
     <div>
       <h1>SnapScout</h1>
-      <Form history={history} handleSubmit={handleSubmit} />
+      <Form handleSubmit={handleSubmit} />
       <Navigation />
     </div>
   );

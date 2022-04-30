@@ -1,5 +1,5 @@
-@import "../../styles/common-colors.scss";
-@import "../../styles/common-fonts.scss";
+@import "../../../styles/common-colors.scss";
+@import "../../../styles/common-fonts.scss";
 
 .nav {
   background: $c-dark;
@@ -22,7 +22,7 @@
   display: flex;
   flex-wrap: nowrap;
   overflow: scroll;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
 

@@ -1,7 +1,8 @@
 import { useContext, useEffect, FC } from "react";
 
-import { PhotoContext } from "../context/PhotoContext";
-import { Gallery, Loader} from ".";
+import { PhotoContext } from "../../context/PhotoContext";
+import { Loader } from "../common";
+import { Gallery } from ".";
 
 
 interface Props {

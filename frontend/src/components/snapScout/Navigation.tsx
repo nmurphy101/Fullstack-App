@@ -1,6 +1,8 @@
+import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
-export const Navigation = () => {
+
+export const Navigation: FC = () => {
   return (
     <nav className="main-nav">
       <ul>
