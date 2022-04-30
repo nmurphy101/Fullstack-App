@@ -79,7 +79,7 @@
       "comma-spacing": ["error", { "before": false, "after": true }],
       "no-trailing-spaces": "error",
       "arrow-parens": ["error", "always"],
-      "operator-linebreak": ["error", "before"],
+      "operator-linebreak": ["error", "after"],
       "spaced-comment": ["error", "always"],
       "quotes": ["error", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
       "react/no-danger": "error",

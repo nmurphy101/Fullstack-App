@@ -4,13 +4,19 @@ import { Form } from "../common";
 import { useReRoute } from "../../hooks";
 
 
-export const SecurePasswordHeader: FC = () => {
+interface Props {
+  onSubmit?: any,
+}
+
+export const SecurePasswordHeader: FC<Props> = ({ onSubmit }) => {
   const reRoute = useReRoute();
 
   // Prevent page reload, clear input, set URL and push history on submit
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>, searchInput: string) => {
     e.preventDefault();
     e.currentTarget.reset();
+    console.log(onSubmit);
+    onSubmit ? onSubmit(): null;
     const url = `/SecurePassword/search/${searchInput}`;
     reRoute(url);
   };

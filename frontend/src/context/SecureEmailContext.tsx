@@ -38,6 +38,7 @@ export const SecureEmailProvider: FC<Props> = ({ children }) => {
               "Encountered an error with fetching and parsing data",
               error
             );
+            setLoading(false);
           }
         });
     },
