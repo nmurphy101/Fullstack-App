@@ -1,4 +1,5 @@
 export * from "./config";
 export * from "./request";
 export * from "./getFlickrPhotos";
-export * from "./getSecurePassword";
+export * from "./getPwnedPassword";
+export * from "./getPwnedEmail";

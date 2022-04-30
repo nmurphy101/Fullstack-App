@@ -1,0 +1,97 @@
+@import "../../../styles/common-colors.scss";
+
+.icon {
+  // height: 100%;
+
+  &.black {
+    path,
+    circle,
+    g {
+      fill: $c-darkgrey-800;
+    }
+  }
+
+  &.white {
+    path,
+    circle,
+    g {
+      fill: $c-white;
+    }
+  }
+
+  &.darkblue {
+    path,
+    circle,
+    g {
+      fill: $c-darkblue-500;
+    }
+  }
+
+  &.turquoise {
+    path,
+    circle,
+    g {
+      fill: $c-turquoise-500;
+    }
+  }
+
+  &.lightgrey {
+    path,
+    circle,
+    g {
+      fill: $c-lightgrey-300;
+    }
+  }
+
+  &.red {
+    path,
+    circle,
+    g {
+      fill: $c-red-500;
+    }
+  }
+
+  &.green {
+    path,
+    circle,
+    g {
+      fill: $c-green-500;
+    }
+  }
+
+  &.orange {
+    path,
+    circle,
+    g {
+      fill: $c-orange-500;
+    }
+  }
+
+  &.darkgreen {
+    path,
+    circle,
+    g {
+      fill: $c-green-800;
+    }
+  }
+
+  &.darkgrey {
+    path,
+    circle,
+    g {
+      fill: $c-lightgrey-700;
+    }
+  }
+
+  &.xsmall {
+    width: 12px;
+  }
+
+  &.small {
+    width: 16px;
+  }
+
+  &.medium {
+    width: 20px;
+  }
+}

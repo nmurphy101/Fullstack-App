@@ -1,24 +1,28 @@
 import { useContext, useEffect, FC } from "react";
 
-import { SecurePasswordContext } from "../../context/SecurePasswordContext";
+import { SecurePasswordContext, SecureEmailContext } from "../../context";
 import { Loader } from "../common";
 import { Result } from ".";
 
 
 interface Props {
   searchTerm: string,
+  method: "password" | "email",
 }
 
-export const SecurePasswordContainer: FC<Props> = ({ searchTerm }) => {
-  const { result, loading, runSearch } = useContext(SecurePasswordContext);
+export const SecurePasswordContainer: FC<Props> = ({ searchTerm, method }) => {
+  const { SPResult, isSPLoading, runSPSearch } = useContext(SecurePasswordContext);
+  const { SEResult, isSELoading, runSESearch } = useContext(SecureEmailContext);
   useEffect(() => {
-    runSearch(searchTerm);
+    method == "password" ? runSPSearch(searchTerm) : runSESearch(searchTerm);
     // eslint-disable-next-line
   }, [searchTerm]);
 
+  console.log(isSPLoading, isSELoading);
+
   return (
     <div className="photo-container">
-      {loading ? <Loader /> : <Result data={result} />}
+      {isSPLoading || isSELoading ? <Loader /> : <Result data={SPResult? SPResult : SEResult} method={method} />}
     </div>
   );
 };

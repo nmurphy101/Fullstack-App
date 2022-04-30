@@ -1,6 +1,6 @@
 import { createContext, FC, useState, ReactNode, useCallback } from "react";
 
-import { getSecurePassword } from "../api";
+import { getPwnedPassword } from "../api";
 import { useCrypto } from "../hooks";
 
 
@@ -11,17 +11,18 @@ interface Props {
 export const SecurePasswordContext = createContext(null);
 
 export const SecurePasswordProvider: FC<Props> = ({ children }) => {
-  const [result, setResult] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [SPResult, setResult] = useState({});
+  const [isSPLoading, setLoading] = useState(false);
   const crypto = useCrypto();
 
-  const runSearch = useCallback(
+  const runSPSearch = useCallback(
     async (query: string) => {
+      setLoading(true);
       const pwHash = crypto(query);
       const payload = {
         partialSHA1: pwHash.slice(0, 10),
       };
-      getSecurePassword(payload)
+      getPwnedPassword(payload)
         .then((data) => {
           setResult({
             results: data.candidates,
@@ -48,7 +49,7 @@ export const SecurePasswordProvider: FC<Props> = ({ children }) => {
   );
 
   return (
-    <SecurePasswordContext.Provider value={{ result, loading, runSearch }}>
+    <SecurePasswordContext.Provider value={{ SPResult, isSPLoading, runSPSearch }}>
       {children}
     </SecurePasswordContext.Provider>
   );

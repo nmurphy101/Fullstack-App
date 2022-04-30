@@ -3,6 +3,7 @@ import { FC } from "react";
 
 interface Props {
   data: any,
+  method: "password" | "email",
 }
 
 interface match {
@@ -10,11 +11,13 @@ interface match {
   exposureCount: number,
 }
 
-export const Result: FC<Props> = ({ data }) => {
-  let result = `Password is Safe. It has not been seen yet.`;
-  data.results.forEach((match: match) => {
+export const Result: FC<Props> = ({ data, method }) => {
+  let result = `${method} is Safe. It has not been seen yet.`;
+  console.log("WHATS THE DATA: ", data);
+  data.results?.forEach((match: match) => {
     if (match.sha1.includes(data.pwHash)) {
-      result = `Password is Compromised. It's been seen ${match.exposureCount} times.`;
+      const count = method == "password" ? match.exposureCount : data;
+      result = `${method} is Compromised. It's been seen ${count} times.`;
     }
   });
 
