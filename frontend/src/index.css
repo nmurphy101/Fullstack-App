@@ -2,6 +2,7 @@ body {
     text-align: center;
     font-family: "Josefin Sans", Helvetica, Arial, sans-serif;
     color: #3f4850;
+    margin: 0px;
   }
 
   /* .forkongithub a {
@@ -85,6 +86,7 @@ body {
     padding: 0px 15px;
     border-radius: 0 0.35em 0.35em 0;
     cursor: pointer;
+    background: #051c33;
   }
 
   .active {
@@ -179,7 +181,7 @@ body {
 
   @media only screen and (max-width: 767px) {
     body {
-      padding-top: 2em;
+      /* padding-top: 2em; */
     }
 
     .photo-container li {
@@ -189,7 +191,7 @@ body {
 
   @media only screen and (min-width: 768px) {
     body {
-      padding-top: 4em;
+      /* padding-top: 4em; */
     }
 
     .container {

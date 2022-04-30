@@ -14,6 +14,6 @@
       "@/*": ["*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.spec.ts"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.spec.ts", "../typings.d.ts"],
   "exclude": ["node_modules", "config", "flow", "flow-typed", "bin", "scss", "images"]
 }

@@ -2,30 +2,38 @@ import { FC } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import { PhotoContextProvider } from "./context";
-import { Header, Item, Search, NotFound} from "./components";
-import { useReRoute } from "./hooks";
+import { Header, Item, Search, NotFound, NavigationBar } from "./components";
 
 
 export const App: FC = () => {
-  const reRoute = useReRoute();
 
-  // Prevent page reload, clear input, set URL and push history on submit
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>, searchInput: string) => {
-    e.preventDefault();
-    e.currentTarget.reset();
-    const url = `/search/${searchInput}`;
-    console.log("Initial URL: ", url, searchInput);
-    reRoute(url);
+  const appNav = {
+    brand: { name: "Nick Murphy", to: "/" },
+    links: [
+      { name: "Mountain", to: "/SnapScout/mountain" },
+      { name: "Beach", to: "/SnapScout/beach" },
+      { name: "Bird", to: "/SnapScout/bird" },
+      { name: "Food", to: "/SnapScout/food" },
+    ],
+  };
+
+  const snapScoutNav = {
+    links: [
+      { name: "Mountain", to: "/SnapScout/mountain" },
+      { name: "Beach", to: "/SnapScout/beach" },
+      { name: "Bird", to: "/SnapScout/bird" },
+      { name: "Food", to: "/SnapScout/food" },
+    ],
   };
 
   return (
     <PhotoContextProvider>
-      <BrowserRouter basename="/SnapScout">
+      <BrowserRouter basename="">
+        <NavigationBar brand={appNav.brand} links={appNav.links} />
         <div className="container">
           <Route
             render={(props) => (
               <Header
-                handleSubmit={handleSubmit}
                 history={props.history}
               />
             )}
@@ -34,17 +42,17 @@ export const App: FC = () => {
             <Route
               exact
               path="/"
-              render={() => <Redirect to="/mountain" />}
+              render={() => <Redirect to={appNav.links[0]["to"]} />}
             />
             <Route
-              path="/mountain"
-              render={() => <Item searchTerm="mountain" />}
+              path={snapScoutNav.links[0]["to"]}
+              render={() => <Item searchTerm={snapScoutNav.links[0]["name"]} />}
             />
-            <Route path="/beach" render={() => <Item searchTerm="beach" />} />
-            <Route path="/bird" render={() => <Item searchTerm="bird" />} />
-            <Route path="/food" render={() => <Item searchTerm="food" />} />
+            <Route path={snapScoutNav.links[1]["to"]} render={() => <Item searchTerm={snapScoutNav.links[1]["name"]} />} />
+            <Route path={snapScoutNav.links[2]["to"]} render={() => <Item searchTerm={snapScoutNav.links[2]["name"]} />} />
+            <Route path={snapScoutNav.links[3]["to"]} render={() => <Item searchTerm={snapScoutNav.links[3]["name"]} />} />
             <Route
-              path="/search/:searchInput"
+              path="/SnapScout/search/:searchInput"
               render={(props) => (
                 <Search searchTerm={props.match.params.searchInput} />
               )}

@@ -4,10 +4,10 @@ export const Navigation = () => {
   return (
     <nav className="main-nav">
       <ul>
-        <li><NavLink to="/mountain">Mountain</NavLink></li>
-        <li><NavLink to="/beach">Beaches</NavLink></li>
-        <li><NavLink to="/bird">Birds</NavLink></li>
-        <li><NavLink to="/food">Food</NavLink></li>
+        <li><NavLink to="/SnapScout/mountain">Mountain</NavLink></li>
+        <li><NavLink to="/SnapScout/beach">Beaches</NavLink></li>
+        <li><NavLink to="/SnapScout/bird">Birds</NavLink></li>
+        <li><NavLink to="/SnapScout/food">Food</NavLink></li>
       </ul>
     </nav>
   );

@@ -8,6 +8,7 @@ interface Props {
 }
 
 export const Gallery: FC<Props> = ({ data }) => {
+  console.log(data);
   let images;
   let noImages;
   // map variables to each item in fetched image array and return image component

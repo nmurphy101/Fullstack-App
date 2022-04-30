@@ -9,3 +9,4 @@ export * from "./Navigation";
 export * from "./NoImages";
 export * from "./NotFound";
 export * from "./Search";
+export * from "./navbar";
